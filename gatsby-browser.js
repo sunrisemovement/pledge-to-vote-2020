@@ -3,7 +3,3 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-
-import { start } from './src/lib/effects';
-
-start();
