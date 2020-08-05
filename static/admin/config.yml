@@ -6,13 +6,13 @@ media_folder: static/assets
 public_folder: assets
 media_folder_relative: true
 collections:
-  - label: Config
-    name: config
+  - label: Pages
+    name: pages
     files:
-      - label: Config
-        name: config
-        file: content/config.json
+      - label: Landing
+        name: landing
+        file: content/landing.md
         fields:
-          - label: Example
-            name: example
-            widget: string
+          - label: Content
+            name: body
+            widget: markdown

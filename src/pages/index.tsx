@@ -4,34 +4,34 @@ import { css } from 'styled-components'
 
 type PageQuery = {
   file: {
-    childContentJson: {
-      example: string
+    childMarkdownRemark: {
+      html: string
     }
   }
 }
 
 export const pageQuery = graphql`
   query {
-    file(relativePath: { eq: "config.json" }) {
-      childContentJson {
-        example
+    file(relativePath: { eq: "landing.md" }) {
+      childMarkdownRemark {
+        html
       }
     }
   }
 `
 
 type PageData = {
-  example: string
+  body: string
 }
 
 const transformQuery = (query: PageQuery): PageData => {
   return {
-    example: query.file.childContentJson.example,
+    body: query.file.childMarkdownRemark.html,
   }
 }
 
 const HomePage = ({ data }: { data: PageQuery }) => {
-  const config = transformQuery(data)
+  const page = transformQuery(data)
   return (
     <div>
       <h1>Home Page</h1>
@@ -42,15 +42,7 @@ const HomePage = ({ data }: { data: PageQuery }) => {
       >
         This is how you style things
       </div>
-      <div>
-        This string is from the CMS: <strong>{config.example}</strong>
-      </div>
-      <div>
-        You can edit it at{' '}
-        <a href="/admin/#/collections/config/entries/config">
-          /admin/#/collections/config/entries/config
-        </a>
-      </div>
+      <div dangerouslySetInnerHTML={{ __html: page.body }} />
     </div>
   )
 }
