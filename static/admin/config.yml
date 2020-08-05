@@ -13,7 +13,12 @@ collections:
       - label: Landing
         name: landing
         file: content/landing.md
+        format: yaml-frontmatter
+        frontmatter_delimiter: ---
         fields:
           - label: Content
             name: body
             widget: markdown
+          - label: Example Frontmatter Field
+            name: example
+            widget: string

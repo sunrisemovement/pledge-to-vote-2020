@@ -6,6 +6,9 @@ type PageQuery = {
   file: {
     childMarkdownRemark: {
       html: string
+      frontmatter: {
+        example: string
+      }
     }
   }
 }
@@ -15,6 +18,9 @@ export const pageQuery = graphql`
     file(relativePath: { eq: "landing.md" }) {
       childMarkdownRemark {
         html
+        frontmatter {
+          example
+        }
       }
     }
   }
@@ -22,11 +28,13 @@ export const pageQuery = graphql`
 
 type PageData = {
   body: string
+  example: string
 }
 
 const transformQuery = (query: PageQuery): PageData => {
   return {
     body: query.file.childMarkdownRemark.html,
+    example: query.file.childMarkdownRemark.frontmatter.example,
   }
 }
 
@@ -43,6 +51,10 @@ const HomePage = ({ data }: { data: PageQuery }) => {
         This is how you style things
       </div>
       <div dangerouslySetInnerHTML={{ __html: page.body }} />
+      <div>
+        This text is from the <code>Example Frontmatter Field</code> in the CMS:{' '}
+        <strong>{page.example}</strong>
+      </div>
     </div>
   )
 }
