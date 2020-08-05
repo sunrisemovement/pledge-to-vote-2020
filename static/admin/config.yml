@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: sunrisemovement/pledge-to-vote-2020
+  branch: main
 local_backend: true
 media_folder: static/assets
 public_folder: assets
