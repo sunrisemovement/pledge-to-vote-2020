@@ -43,6 +43,13 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {},
           },
+          {
+            resolve: `gatsby-plugin-google-fonts`,
+            options: {
+              fonts: [`Source Sans Pro`],
+            },
+            display: 'swap',
+          },
         ],
       },
     },

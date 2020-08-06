@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { css } from 'styled-components'
+import { css, injectGlobal } from 'styled-components'
 
 import SiteTitle from '../components/SiteTitle'
 import PledgeContent from '../components/PledgeContent'
@@ -54,8 +54,13 @@ const transformQuery = (query: PageQuery): PageData => {
 
 const HomePage = ({ data }: { data: PageQuery }) => {
   const page = transformQuery(data)
+
   return (
-    <div>
+    <div
+      css={css`
+        font-family: 'Source Sans Pro';
+      `}
+    >
       <div>
         <SiteTitle title={page.siteTitle} />
         <PledgeContent content={page.body} />
