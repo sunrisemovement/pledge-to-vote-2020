@@ -7,7 +7,7 @@ type PageQuery = {
     childMarkdownRemark: {
       html: string
       frontmatter: {
-        example: string
+        siteTitle: string
       }
     }
   }
@@ -19,7 +19,7 @@ export const pageQuery = graphql`
       childMarkdownRemark {
         html
         frontmatter {
-          example
+          siteTitle
         }
       }
     }
@@ -28,13 +28,13 @@ export const pageQuery = graphql`
 
 type PageData = {
   body: string
-  example: string
+  siteTitle: string
 }
 
 const transformQuery = (query: PageQuery): PageData => {
   return {
     body: query.file.childMarkdownRemark.html,
-    example: query.file.childMarkdownRemark.frontmatter.example,
+    siteTitle: query.file.childMarkdownRemark.frontmatter.siteTitle,
   }
 }
 
@@ -52,8 +52,7 @@ const HomePage = ({ data }: { data: PageQuery }) => {
       </div>
       <div dangerouslySetInnerHTML={{ __html: page.body }} />
       <div>
-        This text is from the <code>Example Frontmatter Field</code> in the CMS:{' '}
-        <strong>{page.example}</strong>
+        Site title: <strong>{page.siteTitle}</strong>
       </div>
     </div>
   )
