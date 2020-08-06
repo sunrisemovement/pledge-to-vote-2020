@@ -1,12 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { css, injectGlobal } from 'styled-components'
+import { css, createGlobalStyle } from 'styled-components'
 
 import SiteTitle from '../components/SiteTitle'
 import PledgeContent from '../components/PledgeContent'
 import FormQuote from '../components/FormQuote'
 import Form from '../components/Form'
 import Footer from '../components/Footer'
+
+import GlobalStyle from '../styles/GlobalStyle'
+import ImageContainer from '../styles/ImageContainer'
 
 type PageQuery = {
   file: {
@@ -16,6 +19,7 @@ type PageQuery = {
         siteTitle: string
         quoteContent: string
         footerLogo: string
+        backgroundImage: string
       }
     }
   }
@@ -30,6 +34,7 @@ export const pageQuery = graphql`
           siteTitle
           quoteContent
           footerLogo
+          backgroundImage
         }
       }
     }
@@ -41,6 +46,7 @@ type PageData = {
   siteTitle: string
   quoteContent: string
   footerLogo: string
+  backgroundImage: string
 }
 
 const transformQuery = (query: PageQuery): PageData => {
@@ -49,6 +55,7 @@ const transformQuery = (query: PageQuery): PageData => {
     siteTitle: query.file.childMarkdownRemark.frontmatter.siteTitle,
     quoteContent: query.file.childMarkdownRemark.frontmatter.quoteContent,
     footerLogo: query.file.childMarkdownRemark.frontmatter.footerLogo,
+    backgroundImage: query.file.childMarkdownRemark.frontmatter.backgroundImage,
   }
 }
 
@@ -58,10 +65,11 @@ const HomePage = ({ data }: { data: PageQuery }) => {
   return (
     <div
       css={css`
-        font-family: 'Source Sans Pro';
+        font-family: 'Source Sans Pro', sans-serif;
       `}
     >
-      <div>
+      <GlobalStyle />
+      <ImageContainer imageURL={page.backgroundImage}>
         <SiteTitle title={page.siteTitle} />
         <PledgeContent content={page.body} />
 
@@ -69,16 +77,8 @@ const HomePage = ({ data }: { data: PageQuery }) => {
           <FormQuote quote={page.quoteContent} />
           <Form />
         </div>
-      </div>
+      </ImageContainer>
       <Footer imageLocation={page.footerLogo} />
-
-      <div
-        css={css`
-          color: blue;
-        `}
-      >
-        This is how you style things
-      </div>
     </div>
   )
 }

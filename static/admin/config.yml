@@ -22,21 +22,25 @@ collections:
           - label: Site Title
             name: siteTitle
             widget: string
-          - label: Primary Color
-            name: primaryColor
-            widget: string
-          - label: Secondary Color
-            name: secondaryColor
-            widget: string
-          - label: Background Color
-            name: backgroundColor
-            widget: string
-          - label: Footer Background Color
-            name: footerBackgroundColor
-            widget: string
-          - label: Body Text Color
-            name: bodyTextColor
-            widget: string
+          - label: Colors
+            name: colors
+            widget: object
+            fields:
+              - label: Primary Color
+                name: primaryColor
+                widget: string
+              - label: Secondary Color
+                name: secondaryColor
+                widget: string
+              - label: Background Color
+                name: backgroundColor
+                widget: string
+              - label: Footer Background Color
+                name: footerBackgroundColor
+                widget: string
+              - label: Body Text Color
+                name: bodyTextColor
+                widget: string
           - label: Call to Action Quote
             name: quoteContent
             widget: text
