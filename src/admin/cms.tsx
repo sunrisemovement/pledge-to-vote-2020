@@ -33,7 +33,12 @@ CMS.registerPreviewTemplate('landing', ({ entry }) => {
   const imageMap = React.useMemo(() => {
     return new Map<string, string>(
       cmsData.mediaFiles.map((image: any) => {
-        return [image.path.replace('static/', ''), image.displayURL]
+        return [
+          image.path.replace('static/', ''),
+          typeof image.displayURL === 'string'
+            ? image.displayURL
+            : image.displayURL.path,
+        ]
       }),
     )
   }, [cmsData.mediaFiles])
