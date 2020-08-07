@@ -36,8 +36,6 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
-          HUBS_ENDPOINT: ${{ secrets.HUBS_ENDPOINT }}
-          EVENTS_ENDPOINT: ${{ secrets.EVENTS_ENDPOINT }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
