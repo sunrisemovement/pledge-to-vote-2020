@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { css, createGlobalStyle } from 'styled-components'
+import { css } from 'styled-components'
 
 import SiteTitle from '../components/SiteTitle'
 import PledgeContent from '../components/PledgeContent'
@@ -79,7 +79,7 @@ const transformQuery = (query: PageQuery): PageData => {
   }
 }
 
-const HomePage = ({ data }: { data: PageQuery }) => {
+const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
   const page = transformQuery(data)
 
   // eslint-disable-next-line no-console

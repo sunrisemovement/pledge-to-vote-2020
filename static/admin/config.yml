@@ -1,8 +1,3 @@
-backend:
-  name: github
-  repo: sunrisemovement/pledge-to-vote-2020
-  branch: main
-local_backend: true
 media_folder: static/assets
 public_folder: assets
 media_folder_relative: true
@@ -28,19 +23,19 @@ collections:
             fields:
               - label: Primary Color
                 name: primaryColor
-                widget: string
+                widget: color
               - label: Secondary Color
                 name: secondaryColor
-                widget: string
+                widget: color
               - label: Background Color
                 name: backgroundColor
-                widget: string
+                widget: color
               - label: Footer Background Color
                 name: footerBackgroundColor
-                widget: string
+                widget: color
               - label: Body Text Color
                 name: bodyTextColor
-                widget: string
+                widget: color
           - label: Call to Action Quote
             name: quoteContent
             widget: text

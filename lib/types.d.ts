@@ -9,3 +9,11 @@ declare module '*.png' {
   const content: any
   export default content
 }
+
+declare module 'netlify-cms-widget-color/dist/es/color' {
+  import { ComponentType } from 'react'
+  const exports: {
+    Control: ComponentType
+  }
+  export default exports
+}
