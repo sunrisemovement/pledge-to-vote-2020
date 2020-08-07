@@ -5,6 +5,10 @@ type Props = {
 }
 
 export default createGlobalStyle`
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin:0;
+}
   body {
     margin: 0
   };

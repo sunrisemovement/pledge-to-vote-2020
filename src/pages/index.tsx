@@ -10,7 +10,8 @@ import Footer from '../components/Footer'
 import BodyBorder from '../components/BodyBorder'
 
 import GlobalStyle from '../styles/GlobalStyle'
-import ImageContainer from '../styles/ImageContainer'
+import ImageContainer from '../components/ImageContainer'
+import Container from '../styles/Container'
 
 export type Colors = {
   primaryColor: string
@@ -94,8 +95,10 @@ const HomePage = ({ data }: { data: PageQuery }) => {
       <BodyBorder colors={page.colors} size="5px" />
       <GlobalStyle />
       <ImageContainer imageURL={page.backgroundImage}>
-        <SiteTitle title={page.siteTitle} colors={page.colors} />
-        <PledgeContent content={page.body} />
+        <Container>
+          <SiteTitle title={page.siteTitle} colors={page.colors} />
+          <PledgeContent content={page.body} colors={page.colors} />
+        </Container>
       </ImageContainer>
       <div
         css={css`

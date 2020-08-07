@@ -15,6 +15,7 @@ const SiteTitle: React.FC<Props> = (props) => {
         color: ${props.colors.primaryColor};
         text-align: center;
         padding-top: 1em;
+        text-transform: uppercase;
       `}
     >
       {props.title}
