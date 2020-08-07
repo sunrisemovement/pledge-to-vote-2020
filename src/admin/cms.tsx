@@ -37,7 +37,7 @@ CMS.registerPreviewTemplate('landing', ({ entry }) => {
           image.path.replace('static/', ''),
           typeof image.displayURL === 'string'
             ? image.displayURL
-            : '/' + image.displayURL.path,
+            : '/' + image.displayURL.path.replace('static/', ''),
         ]
       }),
     )
