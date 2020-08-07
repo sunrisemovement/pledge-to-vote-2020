@@ -9,8 +9,41 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: enriikke/gatsby-gh-pages-action@v2
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Set up Node
+        uses: actions/setup-node@v1
         with:
-          access-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-branch: gh-pages
+          node-version: 12
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install NPM dependencies
+        run: npm ci
+
+      - name: Run Gatsby build
+        run: npm run build
+        env:
+          NODE_ENV: production
+          HUBS_ENDPOINT: ${{ secrets.HUBS_ENDPOINT }}
+          EVENTS_ENDPOINT: ${{ secrets.EVENTS_ENDPOINT }}
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
