@@ -29,6 +29,7 @@ const PreviewStyleManager: React.FC<React.PropsWithChildren<{}>> = ({
 
 CMS.registerPreviewTemplate('landing', ({ entry }) => {
   const cmsData = React.useMemo(() => entry.toJS(), [entry])
+  console.log(cmsData)
 
   const imageMap = React.useMemo(() => {
     return new Map<string, string>(
@@ -41,7 +42,9 @@ CMS.registerPreviewTemplate('landing', ({ entry }) => {
         ]
       }),
     )
-  }, [cmsData.mediaFiles])
+  }, [cmsData])
+
+  console.log(imageMap)
 
   const query = React.useMemo(
     () => ({
@@ -64,6 +67,8 @@ CMS.registerPreviewTemplate('landing', ({ entry }) => {
     }),
     [cmsData, imageMap],
   )
+
+  console.log(query)
 
   return (
     <PreviewStyleManager>
