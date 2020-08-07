@@ -1,4 +1,5 @@
 import React from 'react'
+import { css } from 'styled-components'
 
 type Props = {
   imageLocation: string
@@ -6,7 +7,11 @@ type Props = {
 
 const Footer: React.FC<Props> = (props) => {
   return (
-    <div>
+    <div
+      css={css`
+        background-color: #33342e;
+      `}
+    >
       <img src={props.imageLocation} alt="Logo" />
     </div>
   )

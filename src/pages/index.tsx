@@ -7,9 +7,18 @@ import PledgeContent from '../components/PledgeContent'
 import FormQuote from '../components/FormQuote'
 import Form from '../components/Form'
 import Footer from '../components/Footer'
+import BodyBorder from '../components/BodyBorder'
 
 import GlobalStyle from '../styles/GlobalStyle'
 import ImageContainer from '../styles/ImageContainer'
+
+export type Colors = {
+  primaryColor: string
+  secondaryColor: string
+  backgroundColor: string
+  footerBackgroundColor: string
+  bodyTextColor: string
+}
 
 type PageQuery = {
   file: {
@@ -20,6 +29,7 @@ type PageQuery = {
         quoteContent: string
         footerLogo: string
         backgroundImage: string
+        colors: Colors
       }
     }
   }
@@ -35,6 +45,13 @@ export const pageQuery = graphql`
           quoteContent
           footerLogo
           backgroundImage
+          colors {
+            primaryColor
+            secondaryColor
+            bodyTextColor
+            backgroundColor
+            footerBackgroundColor
+          }
         }
       }
     }
@@ -47,6 +64,7 @@ type PageData = {
   quoteContent: string
   footerLogo: string
   backgroundImage: string
+  colors: Colors
 }
 
 const transformQuery = (query: PageQuery): PageData => {
@@ -56,28 +74,37 @@ const transformQuery = (query: PageQuery): PageData => {
     quoteContent: query.file.childMarkdownRemark.frontmatter.quoteContent,
     footerLogo: query.file.childMarkdownRemark.frontmatter.footerLogo,
     backgroundImage: query.file.childMarkdownRemark.frontmatter.backgroundImage,
+    colors: query.file.childMarkdownRemark.frontmatter.colors,
   }
 }
 
 const HomePage = ({ data }: { data: PageQuery }) => {
   const page = transformQuery(data)
 
+  // eslint-disable-next-line no-console
+  console.log(page)
+
   return (
     <div
       css={css`
         font-family: 'Source Sans Pro', sans-serif;
+        color: ${page.colors.bodyTextColor};
       `}
     >
+      <BodyBorder colors={page.colors} size="5px" />
       <GlobalStyle />
       <ImageContainer imageURL={page.backgroundImage}>
-        <SiteTitle title={page.siteTitle} />
+        <SiteTitle title={page.siteTitle} colors={page.colors} />
         <PledgeContent content={page.body} />
-
-        <div>
-          <FormQuote quote={page.quoteContent} />
-          <Form />
-        </div>
       </ImageContainer>
+      <div
+        css={css`
+          background-color: ${page.colors.backgroundColor};
+        `}
+      >
+        <FormQuote quote={page.quoteContent} />
+        <Form />
+      </div>
       <Footer imageLocation={page.footerLogo} />
     </div>
   )
