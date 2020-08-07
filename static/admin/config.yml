@@ -21,7 +21,17 @@ collections:
             widget: markdown
           - label: Site Title
             name: siteTitle
-            widget: string
+            widget: object
+            fields:
+              - label: PrimaryColor
+                name: primaryColor
+                widget: string
+              - label: Secondary Color
+                name: secondaryColor
+                widget: string
+              - label: Third Color
+                name: thirdColor
+                widget: string
           - label: Colors
             name: colors
             widget: object
@@ -31,6 +41,9 @@ collections:
                 widget: string
               - label: Secondary Color
                 name: secondaryColor
+                widget: string
+              - label: Third Color
+                name: thirdColor
                 widget: string
               - label: Background Color
                 name: backgroundColor

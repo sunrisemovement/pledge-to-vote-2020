@@ -1,9 +1,9 @@
 import React from 'react'
 import { css } from 'styled-components'
-import { Colors } from '../pages/index'
+import { Colors, SiteTitleType } from '../pages/index'
 
 type Props = {
-  title: string
+  title: SiteTitleType
   colors: Colors
 }
 
@@ -12,13 +12,33 @@ const SiteTitle: React.FC<Props> = (props) => {
     <h1
       css={css`
         margin: 0;
-        color: ${props.colors.primaryColor};
+        margin-bottom: 1.5em;
         text-align: center;
-        padding-top: 1em;
+        padding-top: 2em;
         text-transform: uppercase;
       `}
     >
-      {props.title}
+      <span
+        css={css`
+          color: ${props.colors.primaryColor};
+        `}
+      >
+        {props.title.primaryColor}
+      </span>
+      <span
+        css={css`
+          color: ${props.colors.secondaryColor};
+        `}
+      >
+        {props.title.secondaryColor}
+      </span>
+      <span
+        css={css`
+          color: ${props.colors.thirdColor};
+        `}
+      >
+        {props.title.thirdColor}
+      </span>
     </h1>
   )
 }

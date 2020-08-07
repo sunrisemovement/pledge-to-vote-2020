@@ -1,8 +1,12 @@
 ---
-siteTitle: Vote Sunrise.
+siteTitle:
+  primaryColor: "Vote "
+  secondaryColor: Sunrise
+  thirdColor: .
 colors:
   primaryColor: "#FFDE16"
   secondaryColor: "#FD9014"
+  thirdColor: "#EF4C39"
   backgroundColor: "#33342E"
   footerBackgroundColor: "#262622"
   bodyTextColor: "#E3EDDF"

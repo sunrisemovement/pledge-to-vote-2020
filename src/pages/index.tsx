@@ -16,9 +16,16 @@ import Container from '../styles/Container'
 export type Colors = {
   primaryColor: string
   secondaryColor: string
+  thirdColor: string
   backgroundColor: string
   footerBackgroundColor: string
   bodyTextColor: string
+}
+
+export type SiteTitleType = {
+  primaryColor: string
+  secondaryColor: string
+  thirdColor: string
 }
 
 type PageQuery = {
@@ -26,7 +33,7 @@ type PageQuery = {
     childMarkdownRemark: {
       html: string
       frontmatter: {
-        siteTitle: string
+        siteTitle: SiteTitleType
         quoteContent: string
         footerLogo: string
         backgroundImage: string
@@ -42,13 +49,18 @@ export const pageQuery = graphql`
       childMarkdownRemark {
         html
         frontmatter {
-          siteTitle
+          siteTitle {
+            primaryColor
+            secondaryColor
+            thirdColor
+          }
           quoteContent
           footerLogo
           backgroundImage
           colors {
             primaryColor
             secondaryColor
+            thirdColor
             bodyTextColor
             backgroundColor
             footerBackgroundColor
@@ -61,7 +73,7 @@ export const pageQuery = graphql`
 
 type PageData = {
   body: string
-  siteTitle: string
+  siteTitle: SiteTitleType
   quoteContent: string
   footerLogo: string
   backgroundImage: string
@@ -105,10 +117,12 @@ const HomePage = ({ data }: { data: PageQuery }) => {
           background-color: ${page.colors.backgroundColor};
         `}
       >
-        <FormQuote quote={page.quoteContent} />
-        <Form />
+        <Container>
+          <FormQuote quote={page.quoteContent} colors={page.colors} />
+          <Form />
+        </Container>
       </div>
-      <Footer imageLocation={page.footerLogo} />
+      <Footer imageLocation={page.footerLogo} colors={page.colors} />
     </div>
   )
 }

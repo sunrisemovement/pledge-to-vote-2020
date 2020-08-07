@@ -12,15 +12,14 @@ const PledgeContent: React.FC<Props> = (props) => {
     <div
       dangerouslySetInnerHTML={{ __html: props.content }}
       css={css`
+        padding-bottom: 2em;
         p {
-          padding-bottom: 1em;
-        }
-        p:first-child {
-          padding-top: 2em;
+          padding-bottom: 1.5em;
         }
         em {
           color: ${props.colors.primaryColor};
           font-style: normal;
+          font-weight: bold;
         }
       `}
     ></div>
