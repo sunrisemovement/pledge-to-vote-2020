@@ -16,6 +16,6 @@
     ],
     "target": "es2018"
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "src/admin/cms.js"],
   "exclude": ["node_modules/*", "public/*"]
 }

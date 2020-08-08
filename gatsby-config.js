@@ -53,8 +53,14 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-netlify-cms',
-    'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
+    'gatsby-plugin-styled-components',
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        manualInit: true,
+        modulePath: `${__dirname}/src/admin/cms.tsx`,
+      },
+    },
   ],
 }

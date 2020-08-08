@@ -11,7 +11,7 @@ colors:
   footerBackgroundColor: "#262622"
   bodyTextColor: "#E3EDDF"
 quoteContent: I pledge to Strike and Vote with my generation in 2020.
-backgroundImage: assets/copy-of-dsc_2124.jpg
+backgroundImage: assets/nelson_pelosi-action_11.13.18.jpg
 footerLogo: assets/sunrise_primary_olive.svg
 ---
 **We are on the cusp of transforming American politics forever.**
