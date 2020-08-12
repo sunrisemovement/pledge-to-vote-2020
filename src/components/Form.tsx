@@ -10,13 +10,18 @@ const Form: React.FC = () => {
     const script = document.createElement('script')
     script.src = 'https://app.sunrisemovement.civicengine.com/embed.js'
     container.current.appendChild(script)
+    script.addEventListener(
+      'load',
+      () => {
+        window.dispatchEvent(new Event('load'))
+      },
+      { once: true },
+    )
 
     const style = document.createElement('link')
     style.rel = 'stylesheet'
     style.href = 'https://app.sunrisemovement.civicengine.com/embed.css'
     container.current.appendChild(style)
-
-    window.dispatchEvent(new Event('load'))
   }, [])
 
   return (
