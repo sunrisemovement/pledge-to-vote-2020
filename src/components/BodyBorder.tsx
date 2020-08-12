@@ -11,45 +11,45 @@ const BodyBorder: React.FC<Props> = (props) => {
   return (
     <div
       css={css`
-        #top,
-        #bottom,
-        #left,
-        #right {
+        .top,
+        .bottom,
+        .left,
+        .right {
           background: ${props.colors.primaryColor};
           position: fixed;
           z-index: 10;
         }
-        #left,
-        #right {
+        .left,
+        .right {
           top: 0;
           bottom: 0;
           width: ${props.size};
         }
-        #left {
+        .left {
           left: 0;
         }
-        #right {
+        .right {
           right: 0;
         }
 
-        #top,
-        #bottom {
+        .top,
+        .bottom {
           left: 0;
           right: 0;
           height: ${props.size};
         }
-        #top {
+        .top {
           top: 0;
         }
-        #bottom {
+        .bottom {
           bottom: 0;
         }
       `}
     >
-      <div id="left"></div>
-      <div id="right"></div>
-      <div id="top"></div>
-      <div id="bottom"></div>
+      <div className="left"></div>
+      <div className="right"></div>
+      <div className="top"></div>
+      <div className="bottom"></div>
     </div>
   )
 }

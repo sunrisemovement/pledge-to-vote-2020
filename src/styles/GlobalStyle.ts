@@ -1,10 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-type Props = {
-  primaryColor: string
-}
-
-export default createGlobalStyle`
+export default createGlobalStyle<{ background: string }>`
 *, *:before, *:after {
   box-sizing: border-box;
   margin:0;
@@ -13,6 +9,7 @@ export default createGlobalStyle`
     @media only screen and (min-width: 1200px) {
       font-size: 18px;
     }
+    background-color: ${(p) => p.background};
   }
   body {
     margin: 0;

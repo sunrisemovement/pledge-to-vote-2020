@@ -22,6 +22,7 @@ const ImageContainer: React.FC<Props> = (props) => {
           height: 100%;
           position: absolute;
           background-position: center top;
+          background-size: cover;
           filter: grayscale(100%);
         `}
       ></div>

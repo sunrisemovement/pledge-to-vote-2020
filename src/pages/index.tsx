@@ -106,8 +106,8 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
         color: ${page.colors.bodyTextColor};
       `}
     >
-      <BodyBorder colors={page.colors} size="5px" />
-      <GlobalStyle />
+      <GlobalStyle background={page.colors.footerBackgroundColor} />
+      <BodyBorder size="5px" colors={page.colors} />
       <ImageContainer imageURL={page.backgroundImage}>
         <SiteTitle title={page.siteTitle} colors={page.colors} />
         <MainWrapper>
