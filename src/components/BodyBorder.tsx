@@ -17,6 +17,7 @@ const BodyBorder: React.FC<Props> = (props) => {
         #right {
           background: ${props.colors.primaryColor};
           position: fixed;
+          z-index: 10;
         }
         #left,
         #right {
