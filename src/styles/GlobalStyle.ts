@@ -9,7 +9,12 @@ export default createGlobalStyle`
   box-sizing: border-box;
   margin:0;
 }
+  html {
+    @media only screen and (min-width: 1200px) {
+      font-size: 18px;
+    }
+  }
   body {
-    margin: 0
+    margin: 0;
   };
 `

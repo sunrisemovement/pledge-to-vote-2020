@@ -1,5 +1,4 @@
 import React from 'react'
-import Container from '../styles/Container'
 import { css } from 'styled-components'
 import { Colors } from '../pages/index'
 import leftQuote from '../../static/noEditAssets/left-quote.svg'
@@ -12,11 +11,23 @@ type Props = {
 
 const FormQuote: React.FC<Props> = (props) => {
   return (
-    <Container>
+    <div
+      css={css`
+        @media only screen and (max-width: 1200px) {
+          padding-left: 1.5em;
+          padding-right: 1.5em;
+        }
+      `}
+    >
       <h2
         css={css`
           font-weight: bold;
-          font-size: 1.5em;
+          @media only screen and (max-width: 800px) {
+            font-size: 1.5em;
+          }
+          @media only screen and (min-width: 800px) {
+            font-size: 2em;
+          }
           color: ${props.colors.primaryColor};
           position: relative;
           @media only screen and (max-width: 1200px) {
@@ -52,7 +63,7 @@ const FormQuote: React.FC<Props> = (props) => {
       >
         {props.quote}
       </h2>
-    </Container>
+    </div>
   )
 }
 

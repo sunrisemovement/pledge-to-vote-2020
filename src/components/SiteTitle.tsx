@@ -14,7 +14,12 @@ const SiteTitle: React.FC<Props> = (props) => {
         margin: 0;
         margin-bottom: 1.5em;
         text-align: center;
-        padding-top: 2em;
+        @media only screen and (max-width: 1200px) {
+          padding-top: 2em;
+        }
+        @media only screen and (min-width: 1200px) {
+          padding-top: 1em;
+        }
         text-transform: uppercase;
       `}
     >
