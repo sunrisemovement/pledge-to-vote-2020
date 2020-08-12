@@ -19,14 +19,18 @@ const FormQuote: React.FC<Props> = (props) => {
           font-size: 1.5em;
           color: ${props.colors.primaryColor};
           position: relative;
-          padding-top: 2em;
+          @media only screen and (max-width: 1200px) {
+            padding-top: 2em;
+          }
           padding-bottom: 2em;
 
           &:before {
             content: '';
             position: absolute;
             left: -1.2em;
-            top: 1.8em;
+            @media only screen and (max-width: 1200px) {
+              top: 1.8em;
+            }
             background-color: ${props.colors.secondaryColor};
             width: 1em;
             height: 1em;

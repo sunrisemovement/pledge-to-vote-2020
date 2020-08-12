@@ -12,6 +12,8 @@ import BodyBorder from '../components/BodyBorder'
 import GlobalStyle from '../styles/GlobalStyle'
 import ImageContainer from '../components/ImageContainer'
 import Container from '../styles/Container'
+import FormSection from '../styles/FormSection'
+import MainWrapper from '../styles/MainWrapper'
 
 export type Colors = {
   primaryColor: string
@@ -107,21 +109,24 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
       <BodyBorder colors={page.colors} size="5px" />
       <GlobalStyle />
       <ImageContainer imageURL={page.backgroundImage}>
-        <Container>
-          <SiteTitle title={page.siteTitle} colors={page.colors} />
-          <PledgeContent content={page.body} colors={page.colors} />
-        </Container>
+        <SiteTitle title={page.siteTitle} colors={page.colors} />
+        <MainWrapper>
+          <Container>
+            <PledgeContent content={page.body} colors={page.colors} />
+          </Container>
+          <FormSection colors={page.colors}>
+            <Container>
+              <FormQuote quote={page.quoteContent} colors={page.colors} />
+              <Form />
+            </Container>
+          </FormSection>
+        </MainWrapper>
       </ImageContainer>
       <div
         css={css`
           background-color: ${page.colors.backgroundColor};
         `}
-      >
-        <Container>
-          <FormQuote quote={page.quoteContent} colors={page.colors} />
-          <Form />
-        </Container>
-      </div>
+      ></div>
       <Footer imageLocation={page.footerLogo} colors={page.colors} />
     </div>
   )

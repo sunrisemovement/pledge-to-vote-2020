@@ -16,11 +16,12 @@ const ImageContainer: React.FC<Props> = (props) => {
         css={css`
           background: url(${props.imageURL}), rgba(51, 52, 46, 0.7);
           background-blend-mode: saturation;
+          background-repeat: no-repeat;
           z-index: -1;
           width: 100%;
           height: 100%;
           position: absolute;
-          background-position: center 45%;
+          background-position: center top;
           filter: grayscale(100%);
         `}
       ></div>

@@ -9,20 +9,22 @@ type Props = {
 
 const PledgeContent: React.FC<Props> = (props) => {
   return (
-    <div
-      dangerouslySetInnerHTML={{ __html: props.content }}
-      css={css`
-        padding-bottom: 2em;
-        p {
-          padding-bottom: 1.5em;
-        }
-        em {
-          color: ${props.colors.primaryColor};
-          font-style: normal;
-          font-weight: bold;
-        }
-      `}
-    ></div>
+    <div>
+      <div
+        dangerouslySetInnerHTML={{ __html: props.content }}
+        css={css`
+          padding-bottom: 2em;
+          p {
+            padding-bottom: 1.5em;
+          }
+          em {
+            color: ${props.colors.primaryColor};
+            font-style: normal;
+            font-weight: bold;
+          }
+        `}
+      ></div>
+    </div>
   )
 }
 
