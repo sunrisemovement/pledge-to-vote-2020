@@ -5,9 +5,10 @@ import { useStaticQuery, graphql } from 'gatsby'
 type Props = {
   description: string
   title: string
+  image: string
 }
 
-const SEO: React.FC<Props> = ({ description, title }) => {
+const SEO: React.FC<Props> = ({ description, title, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -46,6 +47,10 @@ const SEO: React.FC<Props> = ({ description, title }) => {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: image,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
@@ -60,6 +65,10 @@ const SEO: React.FC<Props> = ({ description, title }) => {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image`,
+          content: image,
         },
       ]}
     />
