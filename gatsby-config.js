@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Pledge to Vote 2020',
-    description: '',
+    description:
+      'Our generation can change America forever, but it’s going to take all of us. Are you in?',
     author: 'Sunrise Movement',
   },
   plugins: [

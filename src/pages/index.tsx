@@ -14,6 +14,7 @@ import ImageContainer from '../components/ImageContainer'
 import Container from '../styles/Container'
 import FormSection from '../styles/FormSection'
 import MainWrapper from '../styles/MainWrapper'
+import SEO from '../components/SEO'
 
 export type Colors = {
   primaryColor: string
@@ -106,6 +107,9 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
         color: ${page.colors.bodyTextColor};
       `}
     >
+      <SEO
+        title={`${page.siteTitle.primaryColor}${page.siteTitle.secondaryColor}${page.siteTitle.thirdColor}`}
+      />
       <GlobalStyle background={page.colors.footerBackgroundColor} />
       <BodyBorder size="5px" colors={page.colors} />
       <ImageContainer imageURL={page.backgroundImage}>
