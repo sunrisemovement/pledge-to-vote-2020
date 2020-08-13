@@ -6,7 +6,7 @@ siteTitle:
 siteDescription: Our generation can change America forever, but it’s going to
   take all of us. Are you in?
 siteImage: assets/sm-organize-vote-strike-meta.png
-siteUrl: 'https://staging-vote.sunrisemovement.org'
+siteUrl: https://staging-vote.sunrisemovement.org
 colors:
   primaryColor: "#FFDE16"
   secondaryColor: "#FD9014"
@@ -30,4 +30,4 @@ One November 3rd, our generation will log off, walk out and join our friends and
 
 After that, we need to do everything in our power to make Joe Biden’s life a waking nightmare, and force his administration to act on our priorities and our agenda.
 
-Our generation can change America forever, but it’s going to take all of us. *Are you in?*
+Our generation can change America forever, but it’s going to take all of us. Are you in?
