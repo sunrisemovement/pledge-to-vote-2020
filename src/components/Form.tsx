@@ -34,6 +34,8 @@ const Form: React.FC = () => {
         data-input-email="required"
         data-input-first-name="required"
         data-input-last-name="required"
+        data-input-phone="required"
+        data-input-notifications-opt-in="required"
       />
     </div>
   )
