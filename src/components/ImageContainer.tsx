@@ -14,7 +14,7 @@ const ImageContainer: React.FC<Props> = (props) => {
     >
       <div
         css={css`
-          background: url(${props.imageURL}), rgba(51, 52, 46, 0.7);
+          background: url(${props.imageURL}), rgba(51, 52, 46, 0.85);
           background-blend-mode: saturation;
           background-repeat: no-repeat;
           z-index: -1;
