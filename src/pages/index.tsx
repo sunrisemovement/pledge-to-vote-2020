@@ -128,14 +128,14 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
       <GlobalStyle background={page.colors.footerBackgroundColor} />
       <BodyBorder size="5px" colors={page.colors} />
       <ImageContainer imageURL={page.backgroundImage}>
-        <SiteTitle title={page.siteTitle} colors={page.colors} />
+        <FormQuote quote={page.quoteContent} colors={page.colors} />
+        {/* <SiteTitle title={page.siteTitle} colors={page.colors} /> */}
         <MainWrapper>
           <Container>
             <PledgeContent content={page.body} colors={page.colors} />
           </Container>
           <FormSection colors={page.colors}>
             <Container>
-              <FormQuote quote={page.quoteContent} colors={page.colors} />
               <Form />
             </Container>
           </FormSection>

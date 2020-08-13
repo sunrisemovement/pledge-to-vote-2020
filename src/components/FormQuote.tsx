@@ -14,9 +14,18 @@ const FormQuote: React.FC<Props> = (props) => {
     <div
       css={css`
         @media only screen and (max-width: 1200px) {
-          padding-left: 1.5em;
+          padding-left: 3em;
           padding-right: 1.5em;
+          font-size: 1.5em;
+          padding-top: 1em;
+          padding-bottom: 1em;
         }
+
+        display: flex;
+        justify-content: center;
+        font-size: 1.2em;
+        padding-top: 5em;
+        padding-bottom: 1.5em;
       `}
     >
       <h2
