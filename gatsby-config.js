@@ -19,6 +19,13 @@ module.exports = {
         path: `${__dirname}/content`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: 'GTM-W953ZHL',
+        includeInDevelopment: false,
+      },
+    },
     'gatsby-transformer-json',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
