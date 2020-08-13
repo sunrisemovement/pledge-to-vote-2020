@@ -39,6 +39,7 @@ type PageQuery = {
         siteTitle: SiteTitleType
         siteDescription: string
         siteImage: string
+        siteUrl: string
         quoteContent: string
         footerLogo: string
         backgroundImage: string
@@ -59,6 +60,7 @@ export const pageQuery = graphql`
             secondaryColor
             thirdColor
           }
+          siteUrl
           siteDescription
           siteImage
           quoteContent
@@ -83,6 +85,7 @@ type PageData = {
   siteTitle: SiteTitleType
   siteDescription: string
   siteImage: string
+  siteUrl: string
   quoteContent: string
   footerLogo: string
   backgroundImage: string
@@ -95,6 +98,7 @@ const transformQuery = (query: PageQuery): PageData => {
     siteTitle: query.file.childMarkdownRemark.frontmatter.siteTitle,
     siteDescription: query.file.childMarkdownRemark.frontmatter.siteDescription,
     siteImage: query.file.childMarkdownRemark.frontmatter.siteImage,
+    siteUrl: query.file.childMarkdownRemark.frontmatter.siteUrl,
     quoteContent: query.file.childMarkdownRemark.frontmatter.quoteContent,
     footerLogo: query.file.childMarkdownRemark.frontmatter.footerLogo,
     backgroundImage: query.file.childMarkdownRemark.frontmatter.backgroundImage,
@@ -106,7 +110,8 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
   const page = transformQuery(data)
 
   // eslint-disable-next-line no-console
-  console.log(page)
+  console.log(data)
+  // const imagePath = image && image.childImageSharp.fixed.src
 
   return (
     <div
@@ -118,7 +123,7 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
       <SEO
         title={`${page.siteTitle.primaryColor}${page.siteTitle.secondaryColor}${page.siteTitle.thirdColor}`}
         description={page.siteDescription}
-        image={page.siteImage}
+        image={`${page.siteUrl}/${page.siteImage}`}
       />
       <GlobalStyle background={page.colors.footerBackgroundColor} />
       <BodyBorder size="5px" colors={page.colors} />

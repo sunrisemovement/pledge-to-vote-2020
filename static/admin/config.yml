@@ -30,9 +30,12 @@ collections:
           - label: Site Description
             name: siteDescription
             widget: string
-          - label: Site Image
+          - label: Social Media Image
             name: siteImage
             widget: image
+          - label: Site URL
+            name: siteUrl
+            widget: string
           - label: Colors
             name: colors
             widget: object

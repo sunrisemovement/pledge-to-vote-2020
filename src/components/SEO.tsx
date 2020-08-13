@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
+import metaImage from '../../static/metaImage.png'
 
 type Props = {
   description: string
@@ -33,6 +34,10 @@ const SEO: React.FC<Props> = ({ description, title, image }) => {
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          property: `image`,
+          content: image,
         },
         {
           property: `og:title`,

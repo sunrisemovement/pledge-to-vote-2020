@@ -6,6 +6,7 @@ siteTitle:
 siteDescription: Our generation can change America forever, but it’s going to
   take all of us. Are you in?
 siteImage: assets/sm-organize-vote-strike-meta.png
+siteUrl: 'https://staging-vote.sunrisemovement.org'
 colors:
   primaryColor: "#FFDE16"
   secondaryColor: "#FD9014"
