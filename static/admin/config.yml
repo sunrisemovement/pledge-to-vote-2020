@@ -27,6 +27,9 @@ collections:
               - label: Third Color
                 name: thirdColor
                 widget: string
+          - label: Site Description
+            name: siteDescription
+            widget: string
           - label: Colors
             name: colors
             widget: object

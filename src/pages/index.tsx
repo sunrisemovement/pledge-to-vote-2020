@@ -37,6 +37,7 @@ type PageQuery = {
       html: string
       frontmatter: {
         siteTitle: SiteTitleType
+        siteDescription: string
         quoteContent: string
         footerLogo: string
         backgroundImage: string
@@ -57,6 +58,7 @@ export const pageQuery = graphql`
             secondaryColor
             thirdColor
           }
+          siteDescription
           quoteContent
           footerLogo
           backgroundImage
@@ -77,6 +79,7 @@ export const pageQuery = graphql`
 type PageData = {
   body: string
   siteTitle: SiteTitleType
+  siteDescription: string
   quoteContent: string
   footerLogo: string
   backgroundImage: string
@@ -87,6 +90,7 @@ const transformQuery = (query: PageQuery): PageData => {
   return {
     body: query.file.childMarkdownRemark.html,
     siteTitle: query.file.childMarkdownRemark.frontmatter.siteTitle,
+    siteDescription: query.file.childMarkdownRemark.frontmatter.siteDescription,
     quoteContent: query.file.childMarkdownRemark.frontmatter.quoteContent,
     footerLogo: query.file.childMarkdownRemark.frontmatter.footerLogo,
     backgroundImage: query.file.childMarkdownRemark.frontmatter.backgroundImage,
@@ -109,6 +113,7 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
     >
       <SEO
         title={`${page.siteTitle.primaryColor}${page.siteTitle.secondaryColor}${page.siteTitle.thirdColor}`}
+        description={page.siteDescription}
       />
       <GlobalStyle background={page.colors.footerBackgroundColor} />
       <BodyBorder size="5px" colors={page.colors} />
