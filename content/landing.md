@@ -3,7 +3,7 @@ siteTitle: Sunrise Voting
 siteDescription: Our generation can change America forever, but it’s going to
   take all of us. Are you in?
 siteImage: assets/sm-organize-vote-strike-meta.png
-siteUrl: https://staging-vote.sunrisemovement.org
+siteUrl: https://vote.sunrisemovement.org
 colors:
   primaryColor: "#FFDE16"
   secondaryColor: "#FD9014"
@@ -11,20 +11,17 @@ colors:
   backgroundColor: "#33342E"
   footerBackgroundColor: "#262622"
   bodyTextColor: "#fffffb"
-quoteContent: I pledge to Strike and Vote with my generation in 2020.
+quoteContent: I pledge to join my generation as we vote and take to the
+  streets  to win a society that works for all of us.
 backgroundImage: assets/nelson_pelosi-action_11.13.18.jpg
 footerLogo: assets/sunrise_primary_olive.svg
 ---
-**We are on the cusp of transforming American politics forever.**
+This year, our generation has the power to transform American politics forever.
 
-For years they said our generation is lazy and naive, that we ask for too much. They said the Green New Deal, defunding the police, ending evictions, and Medicare for All were never going to happen. But while they were asleep at the wheel, our generation was wide awake and building movements to make our vision a reality.
+There are millions of us, in every corner of the country, who believe that workers deserve unions and living wages, who know that no one in the richest country on earth should be evicted, who will fight to defund the police, and who are hungry for a green new deal that will tackle the climate crisis while making society more fair and just in the process.
 
-2021 can be the year our generation takes charge and sets our country’s priorities on the right track.
+COVID-19, the recession, and the uprisings have thrown the old rules out the window. Historic change is coming. The question is: will the forces of fear and hate bring us into a darker version of the past, or will our generation rise up and light the way forward?
 
-To get there, we need to defeat Donald Trump this November.
+The answer is up to us. The change we need will be impossible if our generation doesn’t vote in this election. And we know voting alone is nowhere near enough. We need a generational uprising that makes it clear to those in power that we won’t back down until our ideas are the law of the land.
 
-One November 3rd, our generation will log off, walk out and join our friends and neighbors in the streets and at the ballot box. We will vote and mobilize to protect the vote.
-
-After that, we need to do everything in our power to make Joe Biden’s life a waking nightmare, and force his administration to act on our priorities and our agenda.
-
-Our generation can change America forever, but it’s going to take all of us. Are you in?
+It won’t be easy. But a better world is within reach. Are you in?
