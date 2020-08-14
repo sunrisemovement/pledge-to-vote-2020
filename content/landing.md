@@ -10,7 +10,7 @@ colors:
   thirdColor: "#EF4C39"
   backgroundColor: "#33342E"
   footerBackgroundColor: "#262622"
-  bodyTextColor: "#E3EDDF"
+  bodyTextColor: "#fffffb"
 quoteContent: I pledge to Strike and Vote with my generation in 2020.
 backgroundImage: assets/nelson_pelosi-action_11.13.18.jpg
 footerLogo: assets/sunrise_primary_olive.svg
