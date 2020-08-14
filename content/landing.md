@@ -1,5 +1,5 @@
 ---
-siteTitle: Sunrise Voting
+siteTitle: Vote & take to the streets
 siteDescription: Our generation can change America forever, but it’s going to
   take all of us. Are you in?
 fbImage: assets/pledge-fb-share.jpg
