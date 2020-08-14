@@ -2,7 +2,8 @@
 siteTitle: Sunrise Voting
 siteDescription: Our generation can change America forever, but it’s going to
   take all of us. Are you in?
-siteImage: assets/sm-organize-vote-strike-meta.png
+fbImage: assets/pledge-fb-share.jpg
+twitterImage: assets/pledge-tw-share.jpg
 siteUrl: https://vote.sunrisemovement.org
 colors:
   primaryColor: "#FFDE16"

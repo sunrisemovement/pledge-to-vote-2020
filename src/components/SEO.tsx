@@ -1,15 +1,20 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
-import metaImage from '../../static/metaImage.png'
 
 type Props = {
   description: string
   title: string
-  image: string
+  fbImage: string
+  twitterImage: string
 }
 
-const SEO: React.FC<Props> = ({ description, title, image }) => {
+const SEO: React.FC<Props> = ({
+  description,
+  title,
+  fbImage,
+  twitterImage,
+}) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -37,7 +42,7 @@ const SEO: React.FC<Props> = ({ description, title, image }) => {
         },
         {
           property: `image`,
-          content: image,
+          content: fbImage,
         },
         {
           property: `og:title`,
@@ -53,7 +58,7 @@ const SEO: React.FC<Props> = ({ description, title, image }) => {
         },
         {
           property: `og:image`,
-          content: image,
+          content: fbImage,
         },
         {
           name: `twitter:card`,
@@ -73,7 +78,7 @@ const SEO: React.FC<Props> = ({ description, title, image }) => {
         },
         {
           name: `twitter:image`,
-          content: image,
+          content: twitterImage,
         },
       ]}
     />

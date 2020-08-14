@@ -20,8 +20,11 @@ collections:
           - label: Site Description
             name: siteDescription
             widget: string
-          - label: Social Media Image
-            name: siteImage
+          - label: Facebook Cover Image
+            name: fbImage
+            widget: image
+          - label: Twitter Cover Image
+            name: twitterImage
             widget: image
           - label: Site URL
             name: siteUrl

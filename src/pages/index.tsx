@@ -31,7 +31,8 @@ type PageQuery = {
       frontmatter: {
         siteTitle: string
         siteDescription: string
-        siteImage: string
+        fbImage: string
+        twitterImage: string
         siteUrl: string
         quoteContent: string
         footerLogo: string
@@ -52,7 +53,8 @@ export const pageQuery = graphql`
           siteTitle
           siteUrl
           siteDescription
-          siteImage
+          fbImage
+          twitterImage
           quoteContent
           footerLogo
           backgroundImage
@@ -75,7 +77,8 @@ type PageData = {
   body: string
   siteTitle: string
   siteDescription: string
-  siteImage: string
+  fbImage: string
+  twitterImage: string
   siteUrl: string
   quoteContent: string
   footerLogo: string
@@ -89,7 +92,8 @@ const transformQuery = (query: PageQuery): PageData => {
     body: query.file.childMarkdownRemark.html,
     siteTitle: query.file.childMarkdownRemark.frontmatter.siteTitle,
     siteDescription: query.file.childMarkdownRemark.frontmatter.siteDescription,
-    siteImage: query.file.childMarkdownRemark.frontmatter.siteImage,
+    fbImage: query.file.childMarkdownRemark.frontmatter.fbImage,
+    twitterImage: query.file.childMarkdownRemark.frontmatter.twitterImage,
     siteUrl: query.file.childMarkdownRemark.frontmatter.siteUrl,
     quoteContent: query.file.childMarkdownRemark.frontmatter.quoteContent,
     footerLogo: query.file.childMarkdownRemark.frontmatter.footerLogo,
@@ -112,7 +116,8 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
       <SEO
         title={page.siteTitle}
         description={page.siteDescription}
-        image={`${page.siteUrl}/${page.siteImage}`}
+        fbImage={`${page.siteUrl}/${page.fbImage}`}
+        twitterImage={`${page.siteUrl}/${page.twitterImage}`}
       />
       <GlobalStyle background={page.colors.footerBackgroundColor} />
       <BodyBorder size="5px" colors={page.colors} />

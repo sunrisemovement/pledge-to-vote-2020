@@ -30,12 +30,14 @@ type PageQuery = {
       frontmatter: {
         siteTitle: string
         siteDescription: string
-        siteImage: string
+        fbImage: string
+        twitterImage: string
         siteUrl: string
         quoteContent: string
         footerLogo: string
         backgroundImage: string
         colors: Colors
+        privacyPolicy: string
       }
     }
   }
@@ -50,7 +52,8 @@ export const pageQuery = graphql`
           siteTitle
           siteUrl
           siteDescription
-          siteImage
+          fbImage
+          twitterImage
           quoteContent
           footerLogo
           backgroundImage
@@ -62,6 +65,7 @@ export const pageQuery = graphql`
             backgroundColor
             footerBackgroundColor
           }
+          privacyPolicy
         }
       }
     }
@@ -72,12 +76,14 @@ type PageData = {
   body: string
   siteTitle: string
   siteDescription: string
-  siteImage: string
+  fbImage: string
+  twitterImage: string
   siteUrl: string
   quoteContent: string
   footerLogo: string
   backgroundImage: string
   colors: Colors
+  privacyPolicy: string
 }
 
 const transformQuery = (query: PageQuery): PageData => {
@@ -85,11 +91,13 @@ const transformQuery = (query: PageQuery): PageData => {
     body: query.file.childMarkdownRemark.html,
     siteTitle: query.file.childMarkdownRemark.frontmatter.siteTitle,
     siteDescription: query.file.childMarkdownRemark.frontmatter.siteDescription,
-    siteImage: query.file.childMarkdownRemark.frontmatter.siteImage,
+    fbImage: query.file.childMarkdownRemark.frontmatter.fbImage,
+    twitterImage: query.file.childMarkdownRemark.frontmatter.twitterImage,
     siteUrl: query.file.childMarkdownRemark.frontmatter.siteUrl,
     quoteContent: query.file.childMarkdownRemark.frontmatter.quoteContent,
     footerLogo: query.file.childMarkdownRemark.frontmatter.footerLogo,
     backgroundImage: query.file.childMarkdownRemark.frontmatter.backgroundImage,
+    privacyPolicy: query.file.childMarkdownRemark.frontmatter.privacyPolicy,
     colors: query.file.childMarkdownRemark.frontmatter.colors,
   }
 }
@@ -111,7 +119,7 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
         <MainWrapper>
           <div
             css={css`
-              grid-area: left;
+              grid-area: right;
             `}
           >
             <FormSection colors={page.colors}>
@@ -122,7 +130,7 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
           </div>
           <div
             css={css`
-              grid-area: right;
+              grid-area: left;
             `}
           >
             <Container>
@@ -136,7 +144,11 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
           background-color: ${page.colors.backgroundColor};
         `}
       ></div>
-      <Footer imageLocation={page.footerLogo} colors={page.colors} />
+      <Footer
+        imageLocation={page.footerLogo}
+        colors={page.colors}
+        privacyPolicy={page.privacyPolicy}
+      />
     </div>
   )
 }
