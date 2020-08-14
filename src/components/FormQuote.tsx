@@ -16,7 +16,7 @@ const FormQuote: React.FC<Props> = (props) => {
         @media only screen and (max-width: 1200px) {
           padding-left: 3em;
           padding-right: 1.5em;
-          font-size: 1.5em;
+          font-size: 1em;
           padding-top: 1em;
           padding-bottom: 1em;
         }
@@ -24,6 +24,8 @@ const FormQuote: React.FC<Props> = (props) => {
         display: flex;
         justify-content: center;
         font-size: 1.2em;
+        padding-left: 3.5em;
+        padding-right: 3.5em;
         padding-top: 5em;
         padding-bottom: 1.5em;
       `}
