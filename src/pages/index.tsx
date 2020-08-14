@@ -115,14 +115,22 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
       <ImageContainer imageURL={page.backgroundImage}>
         <Quote quote={page.quoteContent} colors={page.colors} />
         <MainWrapper>
-          <div>
+          <div
+            css={css`
+              grid-area: right;
+            `}
+          >
             <FormSection colors={page.colors}>
               <Container>
                 <Form />
               </Container>
             </FormSection>
           </div>
-          <div>
+          <div
+            css={css`
+              grid-area: left;
+            `}
+          >
             <Container>
               <PledgeContent content={page.body} colors={page.colors} />
             </Container>
