@@ -4,6 +4,7 @@ siteDescription: Our generation can change America forever, but it’s going to
   take all of us. Are you in?
 fbImage: assets/pledge-fb-share.jpg
 twitterImage: assets/pledge-tw-share.jpg
+twitterUsername: '@sunrisemvmt'
 siteUrl: https://vote.sunrisemovement.org
 colors:
   primaryColor: "#FFDE16"

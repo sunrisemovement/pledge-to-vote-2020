@@ -33,6 +33,7 @@ type PageQuery = {
         siteDescription: string
         fbImage: string
         twitterImage: string
+        twitterUsername: string
         siteUrl: string
         quoteContent: string
         footerLogo: string
@@ -55,6 +56,7 @@ export const pageQuery = graphql`
           siteDescription
           fbImage
           twitterImage
+          twitterUsername
           quoteContent
           footerLogo
           backgroundImage
@@ -79,6 +81,7 @@ type PageData = {
   siteDescription: string
   fbImage: string
   twitterImage: string
+  twitterUsername: string
   siteUrl: string
   quoteContent: string
   footerLogo: string
@@ -94,6 +97,7 @@ const transformQuery = (query: PageQuery): PageData => {
     siteDescription: query.file.childMarkdownRemark.frontmatter.siteDescription,
     fbImage: query.file.childMarkdownRemark.frontmatter.fbImage,
     twitterImage: query.file.childMarkdownRemark.frontmatter.twitterImage,
+    twitterUsername: query.file.childMarkdownRemark.frontmatter.twitterUsername,
     siteUrl: query.file.childMarkdownRemark.frontmatter.siteUrl,
     quoteContent: query.file.childMarkdownRemark.frontmatter.quoteContent,
     footerLogo: query.file.childMarkdownRemark.frontmatter.footerLogo,
@@ -118,6 +122,7 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
         description={page.siteDescription}
         fbImage={`${page.siteUrl}/${page.fbImage}`}
         twitterImage={`${page.siteUrl}/${page.twitterImage}`}
+        twitterUsername={page.twitterUsername}
       />
       <GlobalStyle background={page.colors.footerBackgroundColor} />
       <BodyBorder size="5px" colors={page.colors} />

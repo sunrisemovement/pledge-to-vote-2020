@@ -7,6 +7,7 @@ type Props = {
   title: string
   fbImage: string
   twitterImage: string
+  twitterUsername: string
 }
 
 const SEO: React.FC<Props> = ({
@@ -14,6 +15,7 @@ const SEO: React.FC<Props> = ({
   title,
   fbImage,
   twitterImage,
+  twitterUsername,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -66,7 +68,7 @@ const SEO: React.FC<Props> = ({
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: twitterUsername,
         },
         {
           name: `twitter:title`,
