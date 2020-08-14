@@ -37,6 +37,7 @@ type PageQuery = {
         footerLogo: string
         backgroundImage: string
         colors: Colors
+        privacyPolicy: string
       }
     }
   }
@@ -63,6 +64,7 @@ export const pageQuery = graphql`
             backgroundColor
             footerBackgroundColor
           }
+          privacyPolicy
         }
       }
     }
@@ -79,6 +81,7 @@ type PageData = {
   footerLogo: string
   backgroundImage: string
   colors: Colors
+  privacyPolicy: string
 }
 
 const transformQuery = (query: PageQuery): PageData => {
@@ -91,6 +94,7 @@ const transformQuery = (query: PageQuery): PageData => {
     quoteContent: query.file.childMarkdownRemark.frontmatter.quoteContent,
     footerLogo: query.file.childMarkdownRemark.frontmatter.footerLogo,
     backgroundImage: query.file.childMarkdownRemark.frontmatter.backgroundImage,
+    privacyPolicy: query.file.childMarkdownRemark.frontmatter.privacyPolicy,
     colors: query.file.childMarkdownRemark.frontmatter.colors,
   }
 }
@@ -142,7 +146,11 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
           background-color: ${page.colors.backgroundColor};
         `}
       ></div>
-      <Footer imageLocation={page.footerLogo} colors={page.colors} />
+      <Footer
+        imageLocation={page.footerLogo}
+        colors={page.colors}
+        privacyPolicy={page.privacyPolicy}
+      />
     </div>
   )
 }

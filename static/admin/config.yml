@@ -57,3 +57,6 @@ collections:
           - label: Footer Logo
             name: footerLogo
             widget: image
+          - label: Privacy Policy Link
+            name: privacyPolicy
+            widget: string

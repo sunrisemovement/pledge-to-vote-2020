@@ -15,6 +15,7 @@ quoteContent: I pledge to join my generation as we vote and take to the
   streets  to win a society that works for all of us.
 backgroundImage: assets/nelson_pelosi-action_11.13.18.jpg
 footerLogo: assets/sunrise_primary_olive.svg
+privacyPolicy: https://www.sunrisemovement.org/privacy-policy
 ---
 This year, our generation has the power to transform American politics forever.
 

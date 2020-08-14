@@ -5,6 +5,7 @@ import { Colors } from '../pages/index'
 type Props = {
   imageLocation: string
   colors: Colors
+  privacyPolicy: string
 }
 
 const Footer: React.FC<Props> = (props) => {
@@ -12,9 +13,9 @@ const Footer: React.FC<Props> = (props) => {
     <div
       css={css`
         background-color: ${props.colors.footerBackgroundColor};
-        text-align: center;
         padding-top: 3em;
         padding-bottom: 5em;
+        text-align: center;
       `}
     >
       <img
@@ -22,8 +23,28 @@ const Footer: React.FC<Props> = (props) => {
         alt="Logo"
         css={css`
           height: 8em;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;
+          padding-bottom: 1em;
         `}
       />
+      <a
+        css={css`
+          color: white;
+          text-decoration: none;
+          text-transform: uppercase;
+          font-size: 0.8em;
+          &:hover {
+            color: ${props.colors.primaryColor};
+            text-decoration: underline;
+          }
+        `}
+        href={props.privacyPolicy}
+      >
+        Privacy Policy
+      </a>
     </div>
   )
 }
