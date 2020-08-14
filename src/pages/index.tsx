@@ -2,9 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { css } from 'styled-components'
 
-import SiteTitle from '../components/SiteTitle'
 import PledgeContent from '../components/PledgeContent'
-import FormQuote from '../components/FormQuote'
+import Quote from '../components/Quote'
 import Form from '../components/Form'
 import Footer from '../components/Footer'
 import BodyBorder from '../components/BodyBorder'
@@ -25,18 +24,12 @@ export type Colors = {
   bodyTextColor: string
 }
 
-export type SiteTitleType = {
-  primaryColor: string
-  secondaryColor: string
-  thirdColor: string
-}
-
 type PageQuery = {
   file: {
     childMarkdownRemark: {
       html: string
       frontmatter: {
-        siteTitle: SiteTitleType
+        siteTitle: string
         siteDescription: string
         siteImage: string
         siteUrl: string
@@ -55,11 +48,7 @@ export const pageQuery = graphql`
       childMarkdownRemark {
         html
         frontmatter {
-          siteTitle {
-            primaryColor
-            secondaryColor
-            thirdColor
-          }
+          siteTitle
           siteUrl
           siteDescription
           siteImage
@@ -82,7 +71,7 @@ export const pageQuery = graphql`
 
 type PageData = {
   body: string
-  siteTitle: SiteTitleType
+  siteTitle: string
   siteDescription: string
   siteImage: string
   siteUrl: string
@@ -109,10 +98,6 @@ const transformQuery = (query: PageQuery): PageData => {
 const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
   const page = transformQuery(data)
 
-  // eslint-disable-next-line no-console
-  console.log(data)
-  // const imagePath = image && image.childImageSharp.fixed.src
-
   return (
     <div
       css={css`
@@ -121,24 +106,35 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
       `}
     >
       <SEO
-        title={`${page.siteTitle.primaryColor}${page.siteTitle.secondaryColor}${page.siteTitle.thirdColor}`}
+        title={page.siteTitle}
         description={page.siteDescription}
         image={`${page.siteUrl}/${page.siteImage}`}
       />
       <GlobalStyle background={page.colors.footerBackgroundColor} />
       <BodyBorder size="5px" colors={page.colors} />
       <ImageContainer imageURL={page.backgroundImage}>
-        <FormQuote quote={page.quoteContent} colors={page.colors} />
-        {/* <SiteTitle title={page.siteTitle} colors={page.colors} /> */}
+        <Quote quote={page.quoteContent} colors={page.colors} />
         <MainWrapper>
-          <Container>
-            <PledgeContent content={page.body} colors={page.colors} />
-          </Container>
-          <FormSection colors={page.colors}>
+          <div
+            css={css`
+              grid-area: right;
+            `}
+          >
+            <FormSection colors={page.colors}>
+              <Container>
+                <Form />
+              </Container>
+            </FormSection>
+          </div>
+          <div
+            css={css`
+              grid-area: left;
+            `}
+          >
             <Container>
-              <Form />
+              <PledgeContent content={page.body} colors={page.colors} />
             </Container>
-          </FormSection>
+          </div>
         </MainWrapper>
       </ImageContainer>
       <div

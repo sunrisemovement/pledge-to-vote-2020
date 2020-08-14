@@ -9,7 +9,7 @@ type Props = {
   colors: Colors
 }
 
-const FormQuote: React.FC<Props> = (props) => {
+const Quote: React.FC<Props> = (props) => {
   return (
     <div
       css={css`
@@ -78,4 +78,4 @@ const FormQuote: React.FC<Props> = (props) => {
   )
 }
 
-export default FormQuote
+export default Quote

@@ -7,7 +7,9 @@ type Props = {
 
 export default styled.div`
   @media only screen and (max-width: 1200px) {
-    padding-top: 3em;
-    background-color: ${(props: Props) => props.colors.backgroundColor};
+    padding-top: 0;
+    max-width: 750px;
+    margin: auto;
+    /* background-color: ${(props: Props) => props.colors.backgroundColor}; */
   }
 `

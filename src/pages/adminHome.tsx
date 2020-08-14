@@ -2,9 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { css } from 'styled-components'
 
-import SiteTitle from '../components/SiteTitle'
 import PledgeContent from '../components/PledgeContent'
-import FormQuote from '../components/FormQuote'
+import Quote from '../components/Quote'
 import Form from '../components/Form'
 import Footer from '../components/Footer'
 import BodyBorder from '../components/BodyBorder'
@@ -24,20 +23,15 @@ export type Colors = {
   bodyTextColor: string
 }
 
-export type SiteTitleType = {
-  primaryColor: string
-  secondaryColor: string
-  thirdColor: string
-}
-
 type PageQuery = {
   file: {
     childMarkdownRemark: {
       html: string
       frontmatter: {
-        siteTitle: SiteTitleType
+        siteTitle: string
         siteDescription: string
         siteImage: string
+        siteUrl: string
         quoteContent: string
         footerLogo: string
         backgroundImage: string
@@ -53,11 +47,8 @@ export const pageQuery = graphql`
       childMarkdownRemark {
         html
         frontmatter {
-          siteTitle {
-            primaryColor
-            secondaryColor
-            thirdColor
-          }
+          siteTitle
+          siteUrl
           siteDescription
           siteImage
           quoteContent
@@ -79,9 +70,10 @@ export const pageQuery = graphql`
 
 type PageData = {
   body: string
-  siteTitle: SiteTitleType
+  siteTitle: string
   siteDescription: string
   siteImage: string
+  siteUrl: string
   quoteContent: string
   footerLogo: string
   backgroundImage: string
@@ -94,6 +86,7 @@ const transformQuery = (query: PageQuery): PageData => {
     siteTitle: query.file.childMarkdownRemark.frontmatter.siteTitle,
     siteDescription: query.file.childMarkdownRemark.frontmatter.siteDescription,
     siteImage: query.file.childMarkdownRemark.frontmatter.siteImage,
+    siteUrl: query.file.childMarkdownRemark.frontmatter.siteUrl,
     quoteContent: query.file.childMarkdownRemark.frontmatter.quoteContent,
     footerLogo: query.file.childMarkdownRemark.frontmatter.footerLogo,
     backgroundImage: query.file.childMarkdownRemark.frontmatter.backgroundImage,
@@ -103,9 +96,6 @@ const transformQuery = (query: PageQuery): PageData => {
 
 const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
   const page = transformQuery(data)
-
-  // eslint-disable-next-line no-console
-  console.log(page)
 
   return (
     <div
@@ -117,17 +107,28 @@ const HomePage: React.FC<{ data: PageQuery }> = ({ data }) => {
       <GlobalStyle background={page.colors.footerBackgroundColor} />
       <BodyBorder size="5px" colors={page.colors} />
       <ImageContainer imageURL={page.backgroundImage}>
-        <SiteTitle title={page.siteTitle} colors={page.colors} />
+        <Quote quote={page.quoteContent} colors={page.colors} />
         <MainWrapper>
-          <Container>
-            <PledgeContent content={page.body} colors={page.colors} />
-          </Container>
-          <FormSection colors={page.colors}>
+          <div
+            css={css`
+              grid-area: left;
+            `}
+          >
+            <FormSection colors={page.colors}>
+              <Container>
+                <Form />
+              </Container>
+            </FormSection>
+          </div>
+          <div
+            css={css`
+              grid-area: right;
+            `}
+          >
             <Container>
-              <FormQuote quote={page.quoteContent} colors={page.colors} />
-              <Form />
+              <PledgeContent content={page.body} colors={page.colors} />
             </Container>
-          </FormSection>
+          </div>
         </MainWrapper>
       </ImageContainer>
       <div
