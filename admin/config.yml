@@ -1,0 +1,68 @@
+media_folder: static/assets
+public_folder: assets
+media_folder_relative: true
+collections:
+  - label: Pages
+    name: pages
+    files:
+      - label: Landing
+        name: landing
+        file: content/landing.md
+        format: yaml-frontmatter
+        frontmatter_delimiter: ---
+        fields:
+          - label: Content
+            name: body
+            widget: markdown
+          - label: Site Title
+            name: siteTitle
+            widget: string
+          - label: Site Description
+            name: siteDescription
+            widget: string
+          - label: Facebook Cover Image
+            name: fbImage
+            widget: image
+          - label: Twitter Cover Image
+            name: twitterImage
+            widget: image
+          - label: Twitter Username
+            name: twitterUsername
+            widget: string
+          - label: Site URL
+            name: siteUrl
+            widget: string
+          - label: Colors
+            name: colors
+            widget: object
+            fields:
+              - label: Primary Color
+                name: primaryColor
+                widget: color
+              - label: Secondary Color
+                name: secondaryColor
+                widget: color
+              - label: Third Color
+                name: thirdColor
+                widget: color
+              - label: Background Color
+                name: backgroundColor
+                widget: color
+              - label: Footer Background Color
+                name: footerBackgroundColor
+                widget: color
+              - label: Body Text Color
+                name: bodyTextColor
+                widget: color
+          - label: Call to Action Quote
+            name: quoteContent
+            widget: text
+          - label: Background Image
+            name: backgroundImage
+            widget: image
+          - label: Footer Logo
+            name: footerLogo
+            widget: image
+          - label: Privacy Policy Link
+            name: privacyPolicy
+            widget: string
