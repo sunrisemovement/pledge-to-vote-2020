@@ -17,7 +17,6 @@ const Html: React.FC<{
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        {props.headComponents}
         <script
           src="https://app.sunrisemovement.civicengine.com/embed.js"
           async
@@ -26,6 +25,7 @@ const Html: React.FC<{
           rel="stylesheet"
           href="https://app.sunrisemovement.civicengine.com/embed.css"
         />
+        {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

@@ -20,7 +20,8 @@ const Quote: React.FC<Props> = (props) => {
           padding-top: 1em;
           padding-bottom: 1em;
         }
-
+        max-width: 1400px;
+        margin: 0 auto;
         display: flex;
         justify-content: center;
         font-size: 1.2em;
